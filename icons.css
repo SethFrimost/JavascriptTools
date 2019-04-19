@@ -1,0 +1,61 @@
+.icon{
+    /*transition: all 1s ease;*/
+    cursor: pointer;
+}
+
+.plus.icon {
+    color: #000;
+    position: relative;
+    margin-left: 1px;
+    margin-top: 1px;
+    width: 9px;
+    height: 9px;
+    border-radius: 1px;
+    border: solid 1px currentColor;
+    float: left;
+}
+
+.plus.icon:before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 1px;
+    background-color: currentColor;
+    top: 4px;
+    left: 1px;
+}
+
+.plus.icon:after {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 1px;
+    background-color: currentColor;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    top: 4px;
+    right: 1px;
+}
+
+
+.minus.icon {
+    color: #000;
+    position: relative;
+    margin-left: 1px;
+    margin-top: 1px;
+    width: 9px;
+    height: 9px;
+    border-radius: 1px;
+    border: solid 1px currentColor;
+    float: left;
+}
+
+.minus.icon:before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 1px;
+    background-color: currentColor;
+    top: 4px;
+    left: 1px;
+}

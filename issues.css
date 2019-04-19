@@ -1,0 +1,189 @@
+body{
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+}
+
+
+.header{
+    font-size: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: black;
+    background-color: #c1c1c1;
+}
+
+.header label{
+    color: black;
+}
+
+.header input{
+    background-color: whitesmoke;
+    border: solid 1px black;
+    padding: 2px;
+}
+
+#btnReload{
+    width: 150px;
+    background: white;
+    color: dc0028;
+}
+
+#configTree table {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 12px;
+}
+#configTree input[type="text"]{
+    width: 100%;
+    font-size: 12px;
+}
+#configTree label{
+    width: 20%;
+}
+
+.filtros{
+    width: 19%;
+    height: 100%;
+    float: left;
+    border-right: solid 1px blue;
+}
+
+.main{
+    width: 80%;
+    float: left;
+}
+
+div.jivlvl {
+    padding-left: 20px;
+    box-sizing: content-box;
+}
+
+div.jivlvl[jivlvl="0"]{
+    padding-left: 0px;
+    column-count: 3;
+}
+
+div.jivlvlItem {
+    width: 100%;
+    box-sizing: content-box;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+div.jivlvlItem[jivlvl="0"]{
+    /*width: 48%;*/
+    float: left;
+    margin: 2px;
+}
+div.jivlvlHeader {
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    padding: 10, 2;
+}
+
+div.jivlvlHeader[jivlvl="0"] {
+    background-color: #3b73af;
+    color:white;
+}
+
+div.jivlvlHeader[jivlvl="1"] {
+    color:#3b73af;
+}
+
+
+
+/* property grid */
+table.FPropGridTable {
+    margin:0px;
+    padding:0px;
+    border: 0;
+    font-size: 11px;
+    border-spacing: 0;
+}
+
+table.FPropGridTable tr td:nth-child(2){
+    font-weight: bold;
+}
+table.FPropGridTable input{
+    width: 100%;
+    font-size: 11px;
+}
+
+table.FPropGridTable table.FPropGridTable {
+    margin-left: 30px;
+    border-left: solid 1px #AAA;
+}
+table.FPropGridTable table.FPropGridTable::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 1px;
+    background-color: #AAA;
+    margin-top: -1px;
+    margin-left: -9px;
+}
+table.FPropGridTable table.FPropGridTable::after {
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 1px;
+    background-color: #AAA;
+    margin-top: 0px;
+    margin-left: -1px;
+}
+
+
+.floatPanelLeft {
+    position: absolute;
+    width: 300px;
+    max-width: 300px;
+    height: 100%;
+    border-right: solid 1px #333333;
+}
+
+.floatPanelLeftBtn {
+    content: '';
+    position: absolute;
+    top: calc(50% - 20px);
+    background-color: #333333;
+    height: 40px;
+    width: 10px;
+    right: -5px;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.floatPanelLeftBtn:before {  
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 12px;
+    width: 5px;
+    height: 5px;
+    border-top: solid 1px white;
+    border-right: solid 1px white;
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+.floatPanelLeftBtn:after {
+    content: '';
+    position: absolute;
+    right: 3px;
+    top: 22px;
+    width: 5px;
+    height: 5px;
+    border-top: solid 1px white;
+    border-right: solid 1px white;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }

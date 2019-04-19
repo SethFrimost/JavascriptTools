@@ -1,0 +1,54 @@
+<html>
+<head>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="FPropertyGrid.js"></script>
+    <link type="text/css" rel="stylesheet" href="icons.css">
+    <link type="text/css" rel="stylesheet" href="issues.css">
+</head> 
+<body>
+    <div class="header">
+        <input type="button" value="obj1" onclick="cargarObj(1)" />
+        <input type="button" value="obj2" onclick="cargarObj(2)" />
+        <input type="button" value="obj3" onclick="cargarObj(3)" />
+        <input type="button" value="obj4" onclick="cargarObj(4)" />
+    </div>
+    <div id="pTool" class="floatPanelLeft">
+        <div id="pPropGrid"></div>
+
+        <div id="pToolBtn" class="floatPanelLeftBtn"></div>
+    </div>
+    <script type="text/javascript">
+        var obj1 = { id:"obj1", num:312, datos:"asdfasdfasd"};
+        var obj2 = { id:"obj2", num:32, datos:"asaaaaaaaaasd"};
+        var obj3 = { id:"obj3", valore:3232, import:2342, codigo:"a", desc:"adfasadfa dfads fads", otro:obj2, zzz:"funct:more"};
+        var obj4 = { id:"obj4", valore:124, import:1000, codigo:"codO4", desc:"Objeto con objeto con objeto", otro:obj3};
+
+        var propG = new FPropertyGrid("propGrid",$("#pPropGrid")[0]);
+        //propG.id = "asdfa";
+        //propG.parentElement = $("#pPropGrid")[0];
+
+        function cargarObj(oid){
+            var o = null;
+
+            if(oid==1) { o = obj1; }
+            else if(oid==2) { o = obj2; }
+            else if(oid==3) { o = obj3; }
+            else if(oid==4) { o = obj4; }
+            
+            this.propG.setObject(o);
+        }
+
+        $("#pToolBtn").click(function() {
+            var p = $("#pTool");
+            if(p.position().left == 0){
+                var w = -p.width();
+                p.animate({left:w});
+                $(this).css({right:"-10px"});
+            }else{
+                p.animate({left:0});
+                $(this).css({right:"-5px"});
+            }
+        });
+    </script>
+</body>
+</html> 
