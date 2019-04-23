@@ -22,7 +22,10 @@
         var obj3 = { id:"obj3", valore:3232, import:2342, codigo:"a", desc:"adfasadfa dfads fads", otro:obj2, zzz:"funct:more"};
         var obj4 = { id:"obj4", valore:124, import:1000, codigo:"codO4", desc:"Objeto con objeto con objeto", otro:obj3};
 
-        var propG = new FPropertyGrid("propGrid",$("#pPropGrid")[0]);
+        var propG = new FPropertyGrid("propGrid",$("#pPropGrid")[0], {
+            afterValueChange: afterValueChange,
+            beforeValueChange: beforeValueChange
+          });
         //propG.id = "asdfa";
         //propG.parentElement = $("#pPropGrid")[0];
 
@@ -37,6 +40,20 @@
             this.propG.setObject(o);
         }
 
+        function beforeValueChange(obj, prop, val) {
+             console.log("beforeValueChange");
+             console.log(obj);
+             console.log(prop);
+             console.log(val);
+        }
+
+        function afterValueChange(obj, prop, val) {
+             console.log("beforeValueChange");
+             console.log(obj);
+             console.log(prop);
+             console.log(val);
+        }
+
         $("#pToolBtn").click(function() {
             var p = $("#pTool");
             if(p.position().left == 0){
@@ -48,6 +65,7 @@
                 $(this).css({right:"-5px"});
             }
         });
+
     </script>
 </body>
 </html> 

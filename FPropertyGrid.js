@@ -83,9 +83,9 @@ class FPropertyGrid {
             inpVal.id = "txt"+prop;
             inpVal.setAttribute("value",obj[prop]);
             inpVal.onchange = function() {
-                if(propG.event.beforeValueChange && typeof propG.event.beforeValueChange === "function") propG.event.beforeValueChange(prop,this.value);
+                if(propG.event.beforeValueChange && typeof propG.event.beforeValueChange === "function") propG.event.beforeValueChange(obj, prop,this.value);
                 obj[prop] = this.value;
-                if(propG.event.afterValueChange && typeof propG.event.afterValueChange === "function") propG.event.afterValueChange(prop,this.value);
+                if(propG.event.afterValueChange && typeof propG.event.afterValueChange === "function") propG.event.afterValueChange(obj, prop,this.value);
             }
 
             tdVal.appendChild(inpVal);
