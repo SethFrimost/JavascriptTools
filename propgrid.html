@@ -23,8 +23,8 @@
         var obj4 = { id:"obj4", valore:124, import:1000, codigo:"codO4", desc:"Objeto con objeto con objeto", otro:obj3};
 
         var propG = new FPropertyGrid("propGrid",$("#pPropGrid")[0], {
-            afterValueChange: afterValueChange,
-            beforeValueChange: beforeValueChange
+            afterValueChange: propG_afterValueChange,
+            beforeValueChange: propG_beforeValueChange
           });
         //propG.id = "asdfa";
         //propG.parentElement = $("#pPropGrid")[0];
@@ -40,14 +40,14 @@
             this.propG.setObject(o);
         }
 
-        function beforeValueChange(obj, prop, val) {
+        function propG_beforeValueChange(obj, prop, val) {
              console.log("beforeValueChange");
              console.log(obj);
              console.log(prop);
              console.log(val);
         }
 
-        function afterValueChange(obj, prop, val) {
+        function propG_afterValueChange(obj, prop, val) {
              console.log("beforeValueChange");
              console.log(obj);
              console.log(prop);
