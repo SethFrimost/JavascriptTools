@@ -1,8 +1,12 @@
 class FPropertyGrid {
-    constructor(id, parent)  {
+    constructor(id, parent, config)  {
         this._id = id;
         this.parentElement = parent;
         this.object = null;
+        this.event = {
+            afterValueChange: config ? config.afterValueChange : undefined,
+            beforeValueChange: config ? config.beforeValueChange : undefined,
+        };
     }
     
     get id(){
@@ -73,12 +77,15 @@ class FPropertyGrid {
 
             this.drawObject(obj[prop],tdEd);
         } else {
+            var propG = this;
             var inpVal = document.createElement("input");
             inpVal.setAttribute("type","input");
             inpVal.id = "txt"+prop;
             inpVal.setAttribute("value",obj[prop]);
             inpVal.onchange = function() {
+                if(propG.event.beforeValueChange && typeof propG.event.beforeValueChange === "function") propG.event.beforeValueChange();
                 obj[prop] = this.value;
+                if(propG.event.afterValueChange && typeof propG.event.afterValueChange === "function") propG.event.afterValueChange();
             }
 
             tdVal.appendChild(inpVal);
