@@ -3,7 +3,7 @@ class FPropertyGrid {
         this._id = id;
         this.parentElement = parent;
         this.object = null;
-        this.drawSonsOnDemand = config.drawSonsOnDemand ? config.drawSonsOnDemand : false;
+        this.drawPopObjOnDemand = config.drawPopObjOnDemand ? config.drawPopObjOnDemand : false;
         this.event = {
             afterValueChange: config ? config.afterValueChange : undefined,
             beforeValueChange: config ? config.beforeValueChange : undefined,
@@ -63,7 +63,7 @@ class FPropertyGrid {
             var tdEd = document.createElement("td");
 
             tdEd.colSpan = 3;
-            if(this.drawSonsOnDemand) tdEd.setAttribute("drawObject","true");
+            if(this.drawPopObjOnDemand) tdEd.setAttribute("drawObject","true");
             trEd.appendChild(tdEd);
             trEd.style = "display:none;";
             
@@ -83,7 +83,7 @@ class FPropertyGrid {
                 }
             };               
 
-            if(!this.drawSonsOnDemand) { this.drawObject(obj[prop],tdEd); }
+            if(!this.drawPopObjOnDemand) { this.drawObject(obj[prop],tdEd); }
         } else {
             var propG = this;
             var inpVal = document.createElement("input");
