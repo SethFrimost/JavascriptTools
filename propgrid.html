@@ -23,6 +23,7 @@
         var obj4 = { id:"obj4", valore:124, import:1000, codigo:"codO4", desc:"Objeto con objeto con objeto", otro:obj3};
 
         var propG = new FPropertyGrid("propGrid",$("#pPropGrid")[0], {
+            drawSonsOnDemand: true,
             afterValueChange: propG_afterValueChange,
             beforeValueChange: propG_beforeValueChange
           });

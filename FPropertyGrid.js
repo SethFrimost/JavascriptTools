@@ -3,6 +3,7 @@ class FPropertyGrid {
         this._id = id;
         this.parentElement = parent;
         this.object = null;
+        this.drawSonsOnDemand = config.drawSonsOnDemand ? config.drawSonsOnDemand : false;
         this.event = {
             afterValueChange: config ? config.afterValueChange : undefined,
             beforeValueChange: config ? config.beforeValueChange : undefined,
@@ -34,6 +35,7 @@ class FPropertyGrid {
     }
 
     drawPropertie(obj, prop, table) {
+        var propG = this;
         var tr = document.createElement("tr");
         var tdExpand = document.createElement("td");
         var tdName = document.createElement("td");
@@ -61,12 +63,18 @@ class FPropertyGrid {
             var tdEd = document.createElement("td");
 
             tdEd.colSpan = 3;
+            if(this.drawSonsOnDemand) tdEd.setAttribute("drawObject","true");
             trEd.appendChild(tdEd);
             trEd.style = "display:none;";
             
             table.appendChild(trEd);
             
             tdExpand.onclick = function() { 
+                if(tdEd.getAttribute("drawObject")) {
+                    propG.drawObject(obj[prop],tdEd); 
+                    tdEd.removeAttribute("drawObject");
+                }
+                
                 $(trEd).toggle(); 
                 if($(trEd).is(":visible")){
                     i.className = "minus icon";
@@ -75,7 +83,7 @@ class FPropertyGrid {
                 }
             };               
 
-            this.drawObject(obj[prop],tdEd);
+            if(!this.drawSonsOnDemand) { this.drawObject(obj[prop],tdEd); }
         } else {
             var propG = this;
             var inpVal = document.createElement("input");
